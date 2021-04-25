@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:searchbusiness/about.dart';
@@ -102,13 +101,51 @@ class _StartingState extends State<Starting> {
     var screenw = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Container(
+        width: screenw,
+        height: screenh,
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/img/homepage.png"),
             fit: BoxFit.cover,
           ),
         ),
-        child: null /* add child content here */,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: MaterialButton(
+                  height: 50,
+                  minWidth: 200,
+                  color: Colors.lightBlue,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  onPressed: () {},
+                  child: Text(
+                    "LOGIN",
+                    style: TextStyle(fontSize: 29, color: Colors.white),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: MaterialButton(
+                  height: 50,
+                  minWidth: 200,
+                  color: Colors.lightBlue,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20)),
+                  onPressed: () {},
+                  child: Text(
+                    "SIGNUP",
+                    style: TextStyle(fontSize: 29, color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

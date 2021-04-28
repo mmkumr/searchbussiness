@@ -55,7 +55,7 @@ class _SignupState extends State<Signup> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "Select the user Catergory you belong.",
+                    "Select the user category you belong.",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         color: Colors.red,

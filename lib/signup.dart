@@ -14,7 +14,6 @@ class _SignupState extends State<Signup> {
   bool value3 = false;
   bool value4 = false;
   bool value5 = false;
-  GlobalKey _toolTipKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
     var screenh = MediaQuery.of(context).size.height;
@@ -71,20 +70,13 @@ class _SignupState extends State<Signup> {
                         direction: Axis.horizontal,
                         alignment: WrapAlignment.center,
                         children: [
-                          Tooltip(
-                            key: _toolTipKey,
-                            message: "This type is example of a type.",
-                            child: Checkbox(
-                              value: value1,
-                              onChanged: (bool value1) {
-                                final dynamic _toolTip =
-                                    _toolTipKey.currentState;
-                                _toolTip.ensureTooltipVisible();
-                                setState(() {
-                                  this.value1 = value1;
-                                });
-                              },
-                            ),
+                          Checkbox(
+                            value: value1,
+                            onChanged: (bool value1) {
+                              setState(() {
+                                this.value1 = value1;
+                              });
+                            },
                           ),
                           InkWell(
                             onTap: () {

@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:searchbusiness/about.dart';
+import 'package:searchbusiness/login.dart';
+import 'package:searchbusiness/signup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -83,7 +85,38 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    var screenh = MediaQuery.of(context).size.height;
+    var screenw = MediaQuery.of(context).size.width;
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      color: Color(0xffC6FFF9),
+      child: Column(
+        children: [
+          Image.asset(
+            "assets/img/topart.png",
+            alignment: Alignment.topLeft,
+            height: screenh * 0.25,
+            width: screenw,
+            fit: BoxFit.fill,
+          ),
+          Center(
+            heightFactor: 2,
+            child: Column(
+              children: [
+                Image.asset(
+                  "assets/img/logo.jpg",
+                  alignment: Alignment.topLeft,
+                  height: 150,
+                  width: 150,
+                  fit: BoxFit.fill,
+                ),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -121,7 +154,14 @@ class _StartingState extends State<Starting> {
                   color: Colors.lightBlue,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Login(),
+                      ),
+                    );
+                  },
                   child: Text(
                     "LOGIN",
                     style: TextStyle(fontSize: 29, color: Colors.white),
@@ -135,8 +175,16 @@ class _StartingState extends State<Starting> {
                   minWidth: 200,
                   color: Colors.lightBlue,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  onPressed: () {},
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => Signup(),
+                      ),
+                    );
+                  },
                   child: Text(
                     "SIGNUP",
                     style: TextStyle(fontSize: 29, color: Colors.white),

@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:searchbusiness/endIntro.dart';
+import 'package:searchbusiness/firstTime/endIntro.dart';
 
 class Services extends StatefulWidget {
   Services({Key key}) : super(key: key);

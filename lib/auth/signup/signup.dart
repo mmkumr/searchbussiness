@@ -15,6 +15,7 @@ class _SignupState extends State<Signup> {
   bool value3 = false;
   bool value4 = false;
   bool value5 = false;
+  String _chosenValue;
   @override
   Widget build(BuildContext context) {
     var screenh = MediaQuery.of(context).size.height;
@@ -49,183 +50,71 @@ class _SignupState extends State<Signup> {
                 //you can set more BoxShadow() here
               ],
             ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                    "Select the user category you belong.",
-                    textAlign: TextAlign.center,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  DropdownButton<String>(
+                    value: _chosenValue,
+                    //elevation: 5,
                     style: TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold,
-                        fontSize: screenw * 0.05),
+                      color: Colors.black,
+                    ),
+
+                    items: <String>[
+                      'Mentor',
+                      'Startup',
+                      'Investor',
+                      'Incubator',
+                    ].map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                    hint: Text(
+                      "Please choose your user type",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: screenw * 0.03,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    onChanged: (String value) {
+                      setState(() {
+                        _chosenValue = value;
+                      });
+                    },
                   ),
-                ),
-                Center(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.all(18.0),
-                      child: Wrap(
-                        direction: Axis.horizontal,
-                        alignment: WrapAlignment.center,
-                        children: [
-                          Checkbox(
-                            value: value1,
-                            onChanged: (bool value1) {
-                              setState(() {
-                                this.value1 = value1;
-                              });
-                            },
-                          ),
-                          InkWell(
-                            onTap: () {
-                              if (value1) {
-                                setState(() {
-                                  value1 = false;
-                                });
-                              } else {
-                                setState(() {
-                                  value1 = true;
-                                });
-                              }
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 14),
-                              child: Text("Type1"),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: MaterialButton(
+                      height: screenh * 0.061,
+                      minWidth: screenw * 0.487,
+                      color: Color(0xff6DFFF0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => User(
+                              userType: _chosenValue,
                             ),
                           ),
-                          Checkbox(
-                            value: value2,
-                            onChanged: (bool value2) {
-                              setState(() {
-                                this.value2 = value2;
-                              });
-                            },
-                          ),
-                          InkWell(
-                            onTap: () {
-                              if (value2) {
-                                setState(() {
-                                  value2 = false;
-                                });
-                              } else {
-                                setState(() {
-                                  value2 = true;
-                                });
-                              }
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 14),
-                              child: Text("Type2"),
-                            ),
-                          ),
-                          Checkbox(
-                            value: value3,
-                            onChanged: (bool value3) {
-                              setState(() {
-                                this.value3 = value3;
-                              });
-                            },
-                          ),
-                          InkWell(
-                            onTap: () {
-                              if (value3) {
-                                setState(() {
-                                  value3 = false;
-                                });
-                              } else {
-                                setState(() {
-                                  value3 = true;
-                                });
-                              }
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 14),
-                              child: Text("Type3"),
-                            ),
-                          ),
-                          Checkbox(
-                            value: value4,
-                            onChanged: (bool value4) {
-                              setState(() {
-                                this.value4 = value4;
-                              });
-                            },
-                          ),
-                          InkWell(
-                            onTap: () {
-                              if (value4) {
-                                setState(() {
-                                  value4 = false;
-                                });
-                              } else {
-                                setState(() {
-                                  value4 = true;
-                                });
-                              }
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 14),
-                              child: Text("Type4"),
-                            ),
-                          ),
-                          Checkbox(
-                            value: value5,
-                            onChanged: (bool value5) {
-                              setState(() {
-                                this.value5 = value5;
-                              });
-                            },
-                          ),
-                          InkWell(
-                            onTap: () {
-                              if (value5) {
-                                setState(() {
-                                  value5 = false;
-                                });
-                              } else {
-                                setState(() {
-                                  value5 = true;
-                                });
-                              }
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.only(top: 14),
-                              child: Text("Type5"),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: MaterialButton(
-                              height: 50,
-                              minWidth: 200,
-                              color: Colors.lightBlue,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              onPressed: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => User(),
-                                  ),
-                                );
-                              },
-                              child: Text(
-                                "Next",
-                                style: TextStyle(
-                                    fontSize: 29, color: Colors.white),
-                              ),
-                            ),
-                          ),
-                        ],
+                        );
+                      },
+                      child: Text(
+                        "Add User",
+                        style: TextStyle(
+                          fontSize: 29,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

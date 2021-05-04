@@ -14,7 +14,8 @@ class Interests {
 }
 
 class User extends StatefulWidget {
-  User({Key key}) : super(key: key);
+  final userType;
+  User({this.userType});
 
   @override
   _UserState createState() => _UserState();
@@ -80,7 +81,7 @@ class _UserState extends State<User> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    "Mentor",
+                    widget.userType,
                     style: TextStyle(
                       color: Color(0xff6DFFF0),
                       fontWeight: FontWeight.bold,

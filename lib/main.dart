@@ -149,8 +149,8 @@ class _StartingState extends State<Starting> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: MaterialButton(
-                  height: 50,
-                  minWidth: 200,
+                  height: screenh * 0.061,
+                  minWidth: screenw * 0.487,
                   color: Colors.lightBlue,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20)),
@@ -171,8 +171,8 @@ class _StartingState extends State<Starting> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: MaterialButton(
-                  height: 50,
-                  minWidth: 200,
+                  height: screenh * 0.061,
+                  minWidth: screenw * 0.487,
                   color: Colors.lightBlue,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),

@@ -87,28 +87,31 @@ class _SignupState extends State<Signup> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: MaterialButton(
-                      height: screenh * 0.061,
-                      minWidth: screenw * 0.487,
-                      color: Color(0xff6DFFF0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => User(
-                              userType: _chosenValue,
+                    child: Visibility(
+                      visible: _chosenValue == null ? false : true,
+                      child: MaterialButton(
+                        height: screenh * 0.061,
+                        minWidth: screenw * 0.487,
+                        color: Color(0xff6DFFF0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => User(
+                                userType: _chosenValue,
+                              ),
                             ),
+                          );
+                        },
+                        child: Text(
+                          "Add User",
+                          style: TextStyle(
+                            fontSize: 29,
+                            color: Colors.white,
                           ),
-                        );
-                      },
-                      child: Text(
-                        "Add User",
-                        style: TextStyle(
-                          fontSize: 29,
-                          color: Colors.white,
                         ),
                       ),
                     ),

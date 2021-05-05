@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
+import 'package:searchbusiness/companies.dart';
 
 class Interests {
   final int id;
@@ -347,7 +348,14 @@ class _UserState extends State<User> {
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => Companies(),
+                                  ),
+                                );
+                              },
                               child: Text(
                                 "Save and Next",
                                 style: TextStyle(

@@ -340,6 +340,102 @@ class _UserState extends State<User> {
                             },
                           ),
                           Padding(
+                            padding: const EdgeInsets.only(top: 18),
+                            child: Text(
+                              "Upload the below files:",
+                              style: TextStyle(
+                                color: Color(0xff6DFFF0),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                color: Color(0xff6DFFF0),
+                              )),
+                              child: Column(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: MaterialButton(
+                                      height: screenh * 0.061,
+                                      minWidth: screenw * 0.487,
+                                      color: Color(0xff6DFFF0),
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Companies(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text(
+                                        "Pitch Deck",
+                                        style: TextStyle(
+                                          fontSize: screenw * 0.04,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: MaterialButton(
+                                      height: screenh * 0.061,
+                                      minWidth: screenw * 0.487,
+                                      color: Color(0xff6DFFF0),
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Companies(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text(
+                                        "Finacials",
+                                        style: TextStyle(
+                                          fontSize: screenw * 0.04,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: MaterialButton(
+                                      height: screenh * 0.061,
+                                      minWidth: screenw * 0.487,
+                                      color: Color(0xff6DFFF0),
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => Companies(),
+                                          ),
+                                        );
+                                      },
+                                      child: Text(
+                                        "Incorporation Certificate",
+                                        style: TextStyle(
+                                          fontSize: screenw * 0.04,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: MaterialButton(
                               height: screenh * 0.061,
@@ -359,7 +455,7 @@ class _UserState extends State<User> {
                               child: Text(
                                 "Save and Next",
                                 style: TextStyle(
-                                  fontSize: 29,
+                                  fontSize: screenw * 0.06,
                                   color: Colors.white,
                                 ),
                               ),

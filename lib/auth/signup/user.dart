@@ -217,47 +217,6 @@ class _UserState extends State<User> {
                           Padding(
                             padding: const EdgeInsets.only(top: 18),
                             child: Text(
-                              "User Type:",
-                              style: TextStyle(
-                                color: Color(0xff6DFFF0),
-                                fontWeight: FontWeight.bold,
-                                fontSize: 20,
-                              ),
-                            ),
-                          ),
-                          RadioListTile(
-                            title: Text('B2B'),
-                            value: "b2b",
-                            groupValue: _selectedtype,
-                            onChanged: (value) {
-                              setState(() {
-                                _selectedtype = value;
-                              });
-                            },
-                          ),
-                          RadioListTile(
-                            title: Text('B2C'),
-                            value: "b2c",
-                            groupValue: _selectedtype,
-                            onChanged: (value) {
-                              setState(() {
-                                _selectedtype = value;
-                              });
-                            },
-                          ),
-                          RadioListTile(
-                            title: Text('B2B2C'),
-                            value: "b2b2c",
-                            groupValue: _selectedtype,
-                            onChanged: (value) {
-                              setState(() {
-                                _selectedtype = value;
-                              });
-                            },
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(top: 18),
-                            child: Text(
                               "Interests:",
                               style: TextStyle(
                                 color: Color(0xff6DFFF0),
@@ -445,6 +404,7 @@ class _UserState extends State<User> {
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               onPressed: () {
+                                Navigator.pop(context);
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(

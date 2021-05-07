@@ -324,20 +324,13 @@ class _UserState extends State<User> {
                                       height: screenh * 0.061,
                                       minWidth: screenw * 0.487,
                                       color: Color(0xff6DFFF0),
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => Companies(),
-                                          ),
-                                        );
-                                      },
+                                      onPressed: () {},
                                       child: Text(
                                         "Pitch Deck",
                                         style: TextStyle(
                                           fontSize: screenw * 0.04,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.white,
+                                          color: Colors.grey,
                                         ),
                                       ),
                                     ),
@@ -348,20 +341,13 @@ class _UserState extends State<User> {
                                       height: screenh * 0.061,
                                       minWidth: screenw * 0.487,
                                       color: Color(0xff6DFFF0),
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => Companies(),
-                                          ),
-                                        );
-                                      },
+                                      onPressed: () {},
                                       child: Text(
                                         "Finacials",
                                         style: TextStyle(
                                           fontSize: screenw * 0.04,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.white,
+                                          color: Colors.grey,
                                         ),
                                       ),
                                     ),
@@ -372,20 +358,13 @@ class _UserState extends State<User> {
                                       height: screenh * 0.061,
                                       minWidth: screenw * 0.487,
                                       color: Color(0xff6DFFF0),
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => Companies(),
-                                          ),
-                                        );
-                                      },
+                                      onPressed: () {},
                                       child: Text(
-                                        "Incorporation Certificate",
+                                        "Incorporation\nCertificate",
                                         style: TextStyle(
                                           fontSize: screenw * 0.04,
                                           fontWeight: FontWeight.bold,
-                                          color: Colors.white,
+                                          color: Colors.grey,
                                         ),
                                       ),
                                     ),

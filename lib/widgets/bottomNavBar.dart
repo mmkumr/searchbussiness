@@ -45,7 +45,7 @@ class _BNavState extends State<BNav> {
                 Text(
                   "My Files",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.grey,
                   ),
                 ),
               ],
@@ -67,7 +67,9 @@ class _BNavState extends State<BNav> {
                 ),
                 Text(
                   "More",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    color: Colors.grey,
+                  ),
                 )
               ],
             ),
@@ -93,7 +95,7 @@ class _BNavState extends State<BNav> {
                 Text(
                   "Companies",
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Colors.grey,
                   ),
                 ),
               ],

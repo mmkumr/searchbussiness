@@ -19,8 +19,18 @@ class _SidePanelState extends State<SidePanel> {
             decoration: BoxDecoration(
               color: Color(0xff6DFFF0),
             ),
-            accountName: Text("John Wick"),
-            accountEmail: Text("doglover@gmail.com"),
+            accountName: Text(
+              "John Wick",
+              style: TextStyle(
+                color: Colors.grey,
+              ),
+            ),
+            accountEmail: Text(
+              "doglover@gmail.com",
+              style: TextStyle(
+                color: Colors.grey,
+              ),
+            ),
             currentAccountPicture: new CircleAvatar(
               backgroundColor: Colors.grey,
               child: Icon(

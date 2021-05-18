@@ -226,6 +226,7 @@ class _UserState extends State<User> {
                             ),
                           ),
                           MultiSelectDialogField(
+                            searchable: true,
                             buttonText: Text("Section"),
                             title: Text("Sections"),
                             buttonIcon: Icon(
@@ -241,6 +242,7 @@ class _UserState extends State<User> {
                             },
                           ),
                           MultiSelectDialogField(
+                            searchable: true,
                             buttonText: Text("Technology"),
                             title: Text("Technolgies"),
                             buttonIcon: Icon(

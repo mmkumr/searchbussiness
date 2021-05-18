@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:searchbusiness/companies.dart';
+import 'package:searchbusiness/connections.dart';
 import 'package:searchbusiness/uploaded_files.dart';
 import 'package:flutter/foundation.dart';
 
@@ -20,7 +21,7 @@ class _BNavState extends State<BNav> {
     var screenh = MediaQuery.of(context).size.height;
     var screenw = MediaQuery.of(context).size.width;
     return Container(
-      height: screenh * 0.13,
+      height: screenh * 0.12,
       color: Color(0xff6DFFF0),
       child: Row(
         children: [
@@ -29,21 +30,20 @@ class _BNavState extends State<BNav> {
               children: [
                 IconButton(
                   icon: Icon(
-                    Icons.file_present,
+                    Icons.person_search,
                     size: 40,
                     color: Colors.white,
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
+                    Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => UploadedFiles(),
+                        builder: (context) => Connections(),
                       ),
                     );
                   },
                 ),
                 Text(
-                  "My Files",
+                  "New Connections",
                   style: TextStyle(
                     color: Colors.grey,
                   ),

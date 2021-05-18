@@ -35,37 +35,9 @@ class _CompaniesState extends State<Companies> {
           child: Container(
             height: screenh,
             child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (BuildContext context, int index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Card(
-                      shadowColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: ListTile(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => CompanyDetails(),
-                            ),
-                          );
-                        },
-                        trailing: Text("Startup"),
-                        leading: FlutterLogo(size: 72.0),
-                        title: Text('Co-founder And CEO\nHamek'),
-                        subtitle: Text(
-                          "May 2007 - Jun 2018\nBerhampur, Odisha, India",
-                        ),
-                        isThreeLine: true,
-                      ),
-                    ),
-                  );
-                }
-                /* children: [
-                Padding(
+              itemCount: 10,
+              itemBuilder: (BuildContext context, int index) {
+                return Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Card(
                     shadowColor: Colors.black,
@@ -73,6 +45,15 @@ class _CompaniesState extends State<Companies> {
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: ListTile(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CompanyDetails(),
+                          ),
+                        );
+                      },
+                      trailing: Text("Startup"),
                       leading: FlutterLogo(size: 72.0),
                       title: Text('Co-founder And CEO\nHamek'),
                       subtitle: Text(
@@ -81,9 +62,9 @@ class _CompaniesState extends State<Companies> {
                       isThreeLine: true,
                     ),
                   ),
-                ),
-              ], */
-                ),
+                );
+              },
+            ),
           ),
         ),
       ),

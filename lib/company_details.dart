@@ -1,9 +1,10 @@
 // @dart=2.9
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'package:searchbusiness/auth/signup/signup.dart';
-import 'package:searchbusiness/companies.dart';
+import 'package:searchbusiness/forms.dart';
+import 'package:searchbusiness/graph.dart';
+import 'package:searchbusiness/uploaded_files.dart';
 import 'package:searchbusiness/widgets/bottomNavBar.dart';
 import 'package:searchbusiness/widgets/drawer.dart';
 
@@ -27,26 +28,10 @@ class CompanyDetails extends StatefulWidget {
 
 class _CompanyDetailsState extends State<CompanyDetails> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-  final _formKey = GlobalKey<FormState>();
-  String _selectedtype = 'b2b';
   String _chosenValue;
   bool value1 = false;
   bool value2 = false;
   List valuedd;
-  List _section = [
-    Interests(id: 1, name: "Startup"),
-    Interests(id: 2, name: "Incubator"),
-    Interests(id: 3, name: "Investers"),
-    Interests(id: 4, name: "Mentor"),
-  ];
-  List _technology = [
-    Interests(id: 1, name: "Robotics"),
-    Interests(id: 2, name: "Embedded"),
-    Interests(id: 3, name: "Tele-communication"),
-    Interests(id: 4, name: "Computer Science"),
-  ];
-  List<Interests> _selectedSections = [];
-  List<Interests> _selectedTechnologies = [];
   @override
   Widget build(BuildContext context) {
     var screenh = MediaQuery.of(context).size.height;
@@ -231,13 +216,18 @@ class _CompanyDetailsState extends State<CompanyDetails> {
                               borderRadius: BorderRadius.circular(20),
                             ),
                             onPressed: () {
-                              _scaffoldKey.currentState.openDrawer();
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Graph(),
+                                ),
+                              );
                             },
                             child: Text(
                               "Graphs",
                               style: TextStyle(
                                 fontSize: screenw * 0.06,
-                                color: Colors.white,
+                                color: Colors.grey,
                               ),
                             ),
                           ),
@@ -252,11 +242,10 @@ class _CompanyDetailsState extends State<CompanyDetails> {
                               borderRadius: BorderRadius.circular(20),
                             ),
                             onPressed: () {
-                              Navigator.pop(context);
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => Companies(),
+                                  builder: (context) => UserForms(),
                                 ),
                               );
                             },
@@ -264,7 +253,33 @@ class _CompanyDetailsState extends State<CompanyDetails> {
                               "Forms",
                               style: TextStyle(
                                 fontSize: screenw * 0.06,
-                                color: Colors.white,
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: MaterialButton(
+                            height: screenh * 0.061,
+                            minWidth: screenw * 0.487,
+                            color: Color(0xff6DFFF0),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                            ),
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => UploadedFiles(),
+                                ),
+                              );
+                            },
+                            child: Text(
+                              "Files",
+                              style: TextStyle(
+                                fontSize: screenw * 0.06,
+                                color: Colors.grey,
                               ),
                             ),
                           ),
@@ -296,4 +311,11 @@ class _CompanyDetailsState extends State<CompanyDetails> {
       ),
     );
   }
+}
+
+class TimeSeriesSales {
+  final DateTime time;
+  final int sales;
+
+  TimeSeriesSales(this.time, this.sales);
 }

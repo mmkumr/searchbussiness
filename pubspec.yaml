@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   shared_preferences: ^0.5.4+6
   multi_select_flutter: ^4.0.0
+  charts_flutter: ^0.10.0
 
 
 dev_dependencies:

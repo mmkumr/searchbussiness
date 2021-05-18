@@ -1,50 +1,21 @@
-// @dart=2.9
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'package:searchbusiness/auth/signup/signup.dart';
 import 'package:searchbusiness/companies.dart';
 import 'package:searchbusiness/widgets/bottomNavBar.dart';
 import 'package:searchbusiness/widgets/drawer.dart';
 
-class Interests {
-  final int id;
-  final String name;
-
-  Interests({
-    this.id,
-    this.name,
-  });
-}
-
-class UploadedFiles extends StatefulWidget {
-  UploadedFiles({Key key}) : super(key: key);
+class UserForms extends StatefulWidget {
+  UserForms({Key key}) : super(key: key);
 
   @override
-  _UploadedFilesState createState() => _UploadedFilesState();
+  _UserFormsState createState() => _UserFormsState();
 }
 
-class _UploadedFilesState extends State<UploadedFiles> {
-  final _formKey = GlobalKey<FormState>();
-  String _selectedtype = 'b2b';
-  String _chosenValue;
+class _UserFormsState extends State<UserForms> {
   bool value1 = false;
   bool value2 = false;
   List valuedd;
-  List _section = [
-    Interests(id: 1, name: "Startup"),
-    Interests(id: 2, name: "Incubator"),
-    Interests(id: 3, name: "Investers"),
-    Interests(id: 4, name: "Mentor"),
-  ];
-  List _technology = [
-    Interests(id: 1, name: "Robotics"),
-    Interests(id: 2, name: "Embedded"),
-    Interests(id: 3, name: "Tele-communication"),
-    Interests(id: 4, name: "Computer Science"),
-  ];
-  List<Interests> _selectedSections = [];
-  List<Interests> _selectedTechnologies = [];
   @override
   Widget build(BuildContext context) {
     GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
@@ -88,7 +59,7 @@ class _UploadedFilesState extends State<UploadedFiles> {
                   child: Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
-                      "Uploaded Files",
+                      "Forms",
                       style: TextStyle(
                         fontSize: screenw * 0.08,
                         color: Color(0xff6DFFF0),
@@ -104,14 +75,14 @@ class _UploadedFilesState extends State<UploadedFiles> {
                       children: [
                         Center(
                           child: Icon(
-                            Icons.file_present,
+                            Icons.article_outlined,
                             color: Color(0xff6DFFF0),
                             size: screenw * 0.3,
                           ),
                         ),
                         Center(
                           child: Text(
-                            "Pitch Deck",
+                            "User Form",
                             style: TextStyle(
                               fontSize: 20,
                               color: Color(0xff6DFFF0),
@@ -151,14 +122,14 @@ class _UploadedFilesState extends State<UploadedFiles> {
                         Divider(),
                         Center(
                           child: Icon(
-                            Icons.file_present,
+                            Icons.article_outlined,
                             color: Color(0xff6DFFF0),
                             size: screenw * 0.3,
                           ),
                         ),
                         Center(
                           child: Text(
-                            "Finacials",
+                            "Investor Form",
                             style: TextStyle(
                               fontSize: 20,
                               color: Color(0xff6DFFF0),
@@ -198,14 +169,14 @@ class _UploadedFilesState extends State<UploadedFiles> {
                         Divider(),
                         Center(
                           child: Icon(
-                            Icons.file_present,
+                            Icons.article_outlined,
                             color: Color(0xff6DFFF0),
                             size: screenw * 0.3,
                           ),
                         ),
                         Center(
                           child: Text(
-                            "Incorporation Certificate",
+                            "Growth Form",
                             style: TextStyle(
                               fontSize: 20,
                               color: Color(0xff6DFFF0),
@@ -233,7 +204,7 @@ class _UploadedFilesState extends State<UploadedFiles> {
                                 );
                               },
                               child: Text(
-                                "Share Link",
+                                "Fill the form",
                                 style: TextStyle(
                                   fontSize: screenw * 0.06,
                                   color: Colors.white,

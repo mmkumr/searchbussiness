@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:searchbusiness/firstTime/about.dart';
 import 'package:searchbusiness/auth/login.dart';
 import 'package:searchbusiness/auth/signup/signup.dart';
@@ -48,7 +49,7 @@ Future<bool> seen() async {
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
-  // This widget is the home page of your application. It is stateful, meaning
+  // This widget is the home page of your applicatioarticle_outlinedn. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
 
@@ -68,10 +69,12 @@ class _MyHomePageState extends State<MyHomePage> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     bool seen = prefs.getBool("opened");
     if (seen == null) {
+      Navigator.pop(context);
       prefs.setBool("opened", true);
       Navigator.push(context, MaterialPageRoute(builder: (context) => About()));
       return true;
     }
+    Navigator.pop(context);
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => Starting()));
     return false;
@@ -80,6 +83,10 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitDown,
+      DeviceOrientation.portraitUp,
+    ]);
     checkFirstSeen();
   }
 

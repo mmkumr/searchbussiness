@@ -2,9 +2,10 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:searchbusiness/auth/signup/signup.dart';
 import 'package:searchbusiness/firstTime/about.dart';
 import 'package:searchbusiness/auth/login.dart';
-import 'package:searchbusiness/auth/signup/signup.dart';
+import 'package:searchbusiness/auth/signup/user_type.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {

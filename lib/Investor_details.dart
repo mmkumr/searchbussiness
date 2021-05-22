@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:searchbusiness/auth/signup/signup.dart';
+import 'package:searchbusiness/auth/signup/user_type.dart';
 import 'package:searchbusiness/widgets/bottomNavBar.dart';
 import 'package:searchbusiness/widgets/drawer.dart';
 import 'package:flutter/foundation.dart';
@@ -154,7 +154,7 @@ class _InvestorDetailsState extends State<InvestorDetails> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Signup(),
+                builder: (context) => UserType(),
               ),
             );
           },

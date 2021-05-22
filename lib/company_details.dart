@@ -1,7 +1,7 @@
 // @dart=2.9
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:searchbusiness/auth/signup/signup.dart';
+import 'package:searchbusiness/auth/signup/user_type.dart';
 import 'package:searchbusiness/forms.dart';
 import 'package:searchbusiness/graph.dart';
 import 'package:searchbusiness/uploaded_files.dart';
@@ -301,7 +301,7 @@ class _CompanyDetailsState extends State<CompanyDetails> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Signup(),
+              builder: (context) => UserType(),
             ),
           );
         },

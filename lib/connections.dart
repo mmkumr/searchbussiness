@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'package:searchbusiness/Investor_details.dart';
-import 'package:searchbusiness/auth/signup/signup.dart';
+import 'package:searchbusiness/auth/signup/user_type.dart';
 import 'package:searchbusiness/widgets/bottomNavBar.dart';
 import 'package:searchbusiness/widgets/drawer.dart';
 
@@ -333,7 +333,7 @@ class _ConnectionsState extends State<Connections> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => Signup(),
+                builder: (context) => UserType(),
               ),
             );
           },

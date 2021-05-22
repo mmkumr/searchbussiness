@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:searchbusiness/companies.dart';
+import 'package:searchbusiness/pitch.dart';
 
 class SidePanel extends StatefulWidget {
   SidePanel({Key key}) : super(key: key);
@@ -52,6 +53,54 @@ class _SidePanelState extends State<SidePanel> {
               leading: Icon(Icons.business),
               title: Text(
                 "24 Comapnies",
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Pitch(),
+                ),
+              );
+            },
+            child: ListTile(
+              leading: Icon(Icons.send_and_archive),
+              title: Text(
+                "Pitch ideas",
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Pitch(),
+                ),
+              );
+            },
+            child: ListTile(
+              leading: Icon(Icons.person_search),
+              title: Text(
+                "Connections",
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Pitch(),
+                ),
+              );
+            },
+            child: ListTile(
+              leading: Icon(Icons.send_and_archive),
+              title: Text(
+                "Connected People",
               ),
             ),
           ),

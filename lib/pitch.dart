@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
-import 'package:searchbusiness/connection_details.dart';
+import 'package:searchbusiness/Investor_details.dart';
+import 'package:searchbusiness/auth/signup/signup.dart';
+import 'package:searchbusiness/widgets/bottomNavBar.dart';
 import 'package:searchbusiness/widgets/drawer.dart';
 
 class Filters {
@@ -14,14 +16,14 @@ class Filters {
   });
 }
 
-class Connections extends StatefulWidget {
-  Connections({Key key}) : super(key: key);
+class Pitch extends StatefulWidget {
+  Pitch({Key key}) : super(key: key);
 
   @override
-  _ConnectionsState createState() => _ConnectionsState();
+  _PitchState createState() => _PitchState();
 }
 
-class _ConnectionsState extends State<Connections> {
+class _PitchState extends State<Pitch> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   List _section = [
     Filters(id: 1, name: "Startup"),
@@ -37,6 +39,7 @@ class _ConnectionsState extends State<Connections> {
   ];
   List<dynamic> _selectedSections;
   List<dynamic> _selectedTechnologies;
+  var _chosenValue = "Infosys";
   @override
   Widget build(BuildContext context) {
     var screenh = MediaQuery.of(context).size.height;
@@ -185,11 +188,41 @@ class _ConnectionsState extends State<Connections> {
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 10,
+                      top: 8,
+                    ),
+                    child: DropdownButton<String>(
+                      value: _chosenValue,
+                      //elevation: 5,
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+
+                      items: <String>[
+                        'Infosys',
+                        'TCS',
+                        'Razorpay',
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+
+                      onChanged: (String value) {
+                        setState(() {
+                          _chosenValue = value;
+                        });
+                      },
+                    ),
+                  ),
                 ],
               ),
               SingleChildScrollView(
                 child: Container(
-                  height: screenh * 0.8,
+                  height: screenh * 0.68,
                   child: ListView.builder(
                     itemCount: 10,
                     itemBuilder: (BuildContext context, int index) {
@@ -207,16 +240,16 @@ class _ConnectionsState extends State<Connections> {
                                   Navigator.of(context).push(
                                     MaterialPageRoute(
                                       builder: (context) => ConnectionDetails(
-                                        name: "Infosys",
+                                        name: "CIIE IIMA",
                                       ),
                                     ),
                                   );
                                 },
-                                trailing: Text("startup\n2014-2019\nPrototype"),
+                                trailing: Text("Incubator\nSince 2014"),
                                 leading: FlutterLogo(size: 72.0),
-                                title: Text('Infosys'),
+                                title: Text('CIIE IIMA'),
                                 subtitle: Text(
-                                  "Brief description of the company. It should not exiced xy no. of word.",
+                                  "At the heart of IIM Ahmedabad lies this center for innovation incubation & entrepreneurship which stands as a pioneer in the field of the entrepreneurial sector as an incubator.\nLocation: Vastrapur, Ahmedabad, Gujarat 380015, India.",
                                 ),
                                 isThreeLine: true,
                               ),
@@ -226,7 +259,7 @@ class _ConnectionsState extends State<Connections> {
                               color: Colors.white,
                               height: 50,
                               minWidth: screenw * 0.9,
-                              child: Text("Connect"),
+                              child: Text("Pitch"),
                             )
                           ],
                         ),
@@ -237,6 +270,22 @@ class _ConnectionsState extends State<Connections> {
               ),
             ],
           ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          backgroundColor: Color(0xff6DFFF0),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Signup(),
+              ),
+            );
+          },
+        ),
+        bottomNavigationBar: BNav(
+          scaffoldKey: _scaffoldKey,
         ),
       ),
     );

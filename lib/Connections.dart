@@ -16,14 +16,14 @@ class Filters {
   });
 }
 
-class Pitch extends StatefulWidget {
-  Pitch({Key key}) : super(key: key);
+class Connections extends StatefulWidget {
+  Connections({Key key}) : super(key: key);
 
   @override
-  _PitchState createState() => _PitchState();
+  _ConnectionsState createState() => _ConnectionsState();
 }
 
-class _PitchState extends State<Pitch> {
+class _ConnectionsState extends State<Connections> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   List _section = [
     Filters(id: 1, name: "Startup"),
@@ -37,9 +37,15 @@ class _PitchState extends State<Pitch> {
     Filters(id: 3, name: "Tele-communication"),
     Filters(id: 4, name: "Computer Science"),
   ];
+  List _type = [
+    Filters(id: 1, name: "Mentor"),
+    Filters(id: 2, name: "Investor"),
+    Filters(id: 3, name: "Incubator"),
+    Filters(id: 4, name: "Startup"),
+  ];
   List<dynamic> _selectedSections;
   List<dynamic> _selectedTechnologies;
-  var _chosenValue = "Infosys";
+  List<dynamic> _selectedType;
   @override
   Widget build(BuildContext context) {
     var screenh = MediaQuery.of(context).size.height;
@@ -174,6 +180,33 @@ class _PitchState extends State<Pitch> {
                                     ),
                                   ],
                                 ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Column(
+                                  children: [
+                                    Text("Type of User"),
+                                    MultiSelectDialogField(
+                                      searchable: true,
+                                      buttonText: Text("User Type"),
+                                      title: Text("User Type"),
+                                      buttonIcon: Icon(
+                                        Icons.arrow_drop_down_circle,
+                                        color: Color(0xff6DFFF0),
+                                      ),
+                                      items: _type
+                                          .map(
+                                              (e) => MultiSelectItem(e, e.name))
+                                          .toList(),
+                                      listType: MultiSelectListType.CHIP,
+                                      onConfirm: (values) {
+                                        setState(() {
+                                          _selectedTechnologies = values;
+                                        });
+                                      },
+                                    ),
+                                  ],
+                                ),
                               )
                             ],
                           ),
@@ -185,36 +218,6 @@ class _PitchState extends State<Pitch> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(
-                      left: 10,
-                      top: 8,
-                    ),
-                    child: DropdownButton<String>(
-                      value: _chosenValue,
-                      //elevation: 5,
-                      style: TextStyle(
-                        color: Colors.black,
-                      ),
-
-                      items: <String>[
-                        'Infosys',
-                        'TCS',
-                        'Razorpay',
-                      ].map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-
-                      onChanged: (String value) {
-                        setState(() {
-                          _chosenValue = value;
-                        });
-                      },
-                    ),
-                  ),
                 ],
               ),
               SingleChildScrollView(
@@ -223,6 +226,18 @@ class _PitchState extends State<Pitch> {
                   child: ListView.builder(
                     itemCount: 10,
                     itemBuilder: (BuildContext context, int index) {
+                      String currentStatus, userType, name;
+                      if (index % 2 == 0) {
+                        currentStatus = "Full Stack Developer.";
+                        userType =
+                            "Mentor(4), Startup Founder(1), Incubator(8)";
+                        name = "Naruto";
+                      } else {
+                        currentStatus =
+                            "Searching for Technical head. Who knows Python Programming.";
+                        userType = "Startup Founder(3)";
+                        name = "Satish";
+                      }
                       return Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Column(
@@ -233,20 +248,62 @@ class _PitchState extends State<Pitch> {
                                 borderRadius: BorderRadius.circular(20),
                               ),
                               child: ListTile(
-                                onTap: () {
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) => InvestorDetails(
-                                        name: "CIIE IIMA",
+                                onTap: () {},
+                                leading: FlutterLogo(size: 72.0),
+                                title: Text(name),
+                                subtitle: Column(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(bottom: 8),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            "Current Status: ",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 12,
+                                            ),
+                                          ),
+                                          Flexible(
+                                            child: Text(currentStatus,
+                                                softWrap: true,
+                                                maxLines: 2,
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                ),
+                                                overflow:
+                                                    TextOverflow.ellipsis),
+                                          ),
+                                        ],
                                       ),
                                     ),
-                                  );
-                                },
-                                trailing: Text("Incubator\nSince 2014"),
-                                leading: FlutterLogo(size: 72.0),
-                                title: Text('CIIE IIMA'),
-                                subtitle: Text(
-                                  "At the heart of IIM Ahmedabad lies this center for innovation incubation & entrepreneurship which stands as a pioneer in the field of the entrepreneurial sector as an incubator.\nLocation: Vastrapur, Ahmedabad, Gujarat 380015, India.",
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(bottom: 8.0),
+                                      child: Row(
+                                        children: [
+                                          Text(
+                                            "About: ",
+                                            style: TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 12,
+                                            ),
+                                            textAlign: TextAlign.left,
+                                          ),
+                                          Flexible(
+                                            child: Text(userType,
+                                                softWrap: true,
+                                                maxLines: 2,
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                ),
+                                                overflow:
+                                                    TextOverflow.ellipsis),
+                                          ),
+                                        ],
+                                      ),
+                                    )
+                                  ],
                                 ),
                                 isThreeLine: true,
                               ),
@@ -256,7 +313,7 @@ class _PitchState extends State<Pitch> {
                               color: Colors.white,
                               height: 50,
                               minWidth: screenw * 0.9,
-                              child: Text("Pitch"),
+                              child: Text("Connect"),
                             )
                           ],
                         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:searchbusiness/Connections.dart';
 import 'package:searchbusiness/companies.dart';
 import 'package:searchbusiness/pitch.dart';
 
@@ -77,7 +78,7 @@ class _SidePanelState extends State<SidePanel> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Pitch(),
+                  builder: (context) => Connections(),
                 ),
               );
             },
@@ -93,7 +94,7 @@ class _SidePanelState extends State<SidePanel> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Pitch(),
+                  builder: (context) => Connections(),
                 ),
               );
             },

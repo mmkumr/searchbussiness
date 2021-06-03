@@ -5,15 +5,15 @@ import 'package:searchbusiness/widgets/bottomNavBar.dart';
 import 'package:searchbusiness/widgets/drawer.dart';
 import 'package:flutter/foundation.dart';
 
-class InvestorDetails extends StatefulWidget {
+class ConnectedDetails extends StatefulWidget {
   final name;
-  InvestorDetails({Key key, @required this.name}) : super(key: key);
+  ConnectedDetails({Key key, @required this.name}) : super(key: key);
 
   @override
-  _InvestorDetailsState createState() => _InvestorDetailsState();
+  _ConnectedDetailsState createState() => _ConnectedDetailsState();
 }
 
-class _InvestorDetailsState extends State<InvestorDetails> {
+class _ConnectedDetailsState extends State<ConnectedDetails> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   @override
   Widget build(BuildContext context) {

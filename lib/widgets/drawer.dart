@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:searchbusiness/Connected.dart';
+import 'package:searchbusiness/connected.dart';
 import 'package:searchbusiness/connections.dart';
 import 'package:searchbusiness/companies.dart';
 import 'package:searchbusiness/pitch.dart';

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
+import 'package:searchbusiness/Investor_details.dart';
 import 'package:searchbusiness/auth/signup/user_type.dart';
+import 'package:searchbusiness/connected_details.dart';
 import 'package:searchbusiness/widgets/bottomNavBar.dart';
 import 'package:searchbusiness/widgets/drawer.dart';
 
@@ -73,7 +75,15 @@ class _ConnectedState extends State<Connected> {
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 child: ListTile(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => ConnectedDetails(
+                                          name: name,
+                                        ),
+                                      ),
+                                    );
+                                  },
                                   leading: FlutterLogo(size: 72.0),
                                   title: Text(name),
                                   subtitle: Column(
